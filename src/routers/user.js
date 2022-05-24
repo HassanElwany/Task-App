@@ -92,10 +92,10 @@ router.delete('/users/me', auth, async (req, res) => {
 
 const upload = multer({
     limits: {
-        fieldSize: 1000000
+        fileSize: 1000000
     },
     fileFilter(req, file, cb) {
-        if (!file.originalname.match(/\.(png | jpg | jpeg)$/)) {
+        if (!file.originalname.match(/\.(png|jpg|jpeg)$/)) {
 
            return cb( new Error('must be provide a valid image'))
         }
